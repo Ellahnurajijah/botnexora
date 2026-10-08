@@ -1,0 +1,4 @@
+discord.py>=2.4
+python-dotenv>=1.0
+tzdata
+openai>=1.40

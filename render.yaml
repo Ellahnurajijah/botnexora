@@ -1,0 +1,24 @@
+services:
+  - type: worker
+    name: botnexora
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    disk:
+      name: botnexora-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: AI_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: AI_CHANNEL_ID
+        sync: false
+      - key: AI_MODEL
+        value: qwen/qwen3.8-27b
+      - key: COMMUNITY_DB_PATH
+        value: /var/data/community.db
